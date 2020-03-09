@@ -32,5 +32,22 @@ fishsplit=fishn.split()
 for word in fishsplit:
     if word in stopwords_list:
         nouns=(str.replace(nouns,(" "+(word)+" ")," "))
-print("nouns: "+nouns)
+#print("nouns: "+nouns)
+#to make sure eg:Apple and apple is counted as same
+newnouns=nouns.lower()
+#split newnouns string to list
+nsplit=newnouns.split()
+countword={}
+for word in nsplit:
+    countword.setdefault(word,0)
+    countword[word]=countword[word]+1
+print("topic is related to the follwing words")
+for wordfreq in countword:
+    if (int(countword.get(wordfreq))) > 1:
+        highfreq = countword[wordfreq]
+        
+        print ((wordfreq)+": "+(str(highfreq)))
+
+
+
         
