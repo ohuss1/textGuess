@@ -24,4 +24,13 @@ fishn=(str.replace(fishn,"-", " "))
 fishn=(str.replace(fishn,",",""))
 fishn = fishn.strip(',')
 fishn = fishn.strip('.')
-print(fishn)
+#print(fishn)
+#now lets remove stopwords
+nouns=fishn
+#storing words without spaces in list
+fishsplit=fishn.split()
+for word in fishsplit:
+    if word in stopwords_list:
+        nouns=(str.replace(nouns,(" "+(word)+" ")," "))
+print("nouns: "+nouns)
+        
